@@ -30,7 +30,7 @@ function newBox(){
 function gameOver(){
     // show game over text 
     mode = 'gameOver';
-    gameOvertext.style.display = 'block';
+    gameOverText.style.display = 'block';
 }
 
 function animate(){
@@ -41,7 +41,7 @@ function animate(){
         for(let n=0; n<boxes.length;n++){
             let box = boxes[n];
             context.fillStyle = 'rgb(' + n * 16 +',' + n * 16 + ',' + n * 16 + ')';
-            context.fillRect(box.x,600 - box,y+cameraY, box.width, height);
+            context.fillRect(box.x,600 - box.y+cameraY, box.width, height);
         }
 
         context.fillStyle = 'yellow';
@@ -101,7 +101,7 @@ function animate(){
     window.requestAnimationFrame(animate)
 }
 function restart(){
-    gameOvertext.style.display = 'none';
+    gameOverText.style.display = 'none';
     boxes.splice(1, boxes.length - 1);
     mode = 'bounce';
     cameraY = 0;
